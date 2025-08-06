@@ -42,7 +42,7 @@ def compute_grad(varX,varY,w,b,m,n):
     db=db/m
     return dw,db
 #gradient descent:
-def grad_des(varX,varY,w,b,iter=100,alpha=0.0001):
+def grad_des(varX,varY,w,b,iter=100,alpha=0.01):
     m=varX.shape[0]
     n=varX.shape[1]
     J_history = []
