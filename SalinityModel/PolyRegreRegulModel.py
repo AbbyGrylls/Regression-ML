@@ -1,4 +1,4 @@
-# Non linear polynomial with regularisation model
+# polynomial regression with regularisation model
 # i.e f(x) = w1x + w2x^2 + w3x^3 + . . . + wnx^n and lamda- regularisation parameter
 # the above is for uni-variable regression and the following is for multi-variable
 # f(x) = (w1₁·x₁ + w1₂·x₂ + w1₃·x₃) + (w2₁·x₁ + w2₂·x₂ + w2₃·x₃)^2+ (w3₁·x₁ + w3₂·x₂ + w3₃·x₃)^3+ b
@@ -6,8 +6,6 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-
-# Load, Structure and Normalize data
 df = pd.read_csv('bottle.csv', low_memory=False)
 Temperature = df['T_degC'].to_numpy()[:1215]
 Depth = df['Depthm'].to_numpy()[:1215]
@@ -55,7 +53,6 @@ def compute_grad(varX,varY,w1,w2,w3,b,m,lmda,n):
     dw2 = np.zeros(num_features)
     dw3 = np.zeros(num_features)
     db = 0
-    # Stack weights for use in compute_func
     w = np.column_stack([w1, w2, w3])
     for i in range(m):
         x = varX[i]
